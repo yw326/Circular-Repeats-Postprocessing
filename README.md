@@ -26,7 +26,7 @@ The program has 7 arguments, all required:
 ## Example
 
 ```
-python main.py data/chrY/chrY_prefiltered.txt data/chrY/chrY_prefiltered.mask 0.3 data/chrY/"1st-type cr seq" data/chrY/1st-type_circle_repet data/chrY/output_seq_file.txt data/chrY/output_idx_file.txt 
+python main.py data/chrY/chrY_prefiltered.txt data/chrY/chrY_prefiltered.mask 0.3 data/chrY/"1st-type cr seq" data/chrY/1st-type_circle_repeat data/chrY/output_seq_file.txt data/chrY/output_idx_file.txt 
 ```
 
 ## Output Files
