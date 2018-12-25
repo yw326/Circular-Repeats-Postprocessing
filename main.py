@@ -289,7 +289,9 @@ def print_results(seq_name, masked_seq_name, tandem_threshold, seq_circle_rep, i
     for repeat in circle_repeats:
         l.append(len(repeat.first_section))
     plt.hist(l)
-    plt.show()
+    plt.xlabel("circle repeat length")
+    plt.ylabel("number of circle repeats")
+    plt.show(block=True)
 
 
 # tandem_threshold = 0.3
