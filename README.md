@@ -5,86 +5,36 @@ The goal of this small python program is to process the result from https://gith
 * write the results in specified output files.
 * collect general information on the microDNA pairs found: average GC content, length distribution, and percentage of microDNA with microhomology (2 length).
 
-## Getting Started
+## Prerequisites
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+First, you need to have the output sequence and index files obtained from the MicroDNA_Detection https://github.com/yw326/MicroDNA_Detection, as they are required inputs for this program.
 
-### Prerequisites
+Second, use tandem repeat finder (TRF) (https://tandem.bu.edu/trf/trf.html) to obtain a masked version of the original sequence used in MicroDNA_Detection (i.e. tandem repeats in the sequence are replaced with letter "N"). If the orgininal sequence contains letters other than "A", "T", "C", "G", we recommend remove these letters before running TRF.
 
-What things you need to install the software and how to install them
+## Command Line Options
 
-```
-Give examples
-```
+The program has 7 arguments, all required:
+* First argument:  sequence file name. It should be the same file used in MicroDNA_Detection.
+* Second argument: masked sequence file name. The masked version of the orginal sequence by TRF.
+* Third argument: threshold for tandem repeats percentage. Any circle repeats found that has tandem repeats more than this threshold are filtered out. The value should be between 0 and 1.
+* Fourth argument: circle repeat sequence file name. The result circle repeat sequence file (from MicroDNA_Detection).
+* Fifth argument: circle repeat index file name. The result circle repeat index file (also from MicroDNA_Detection) corresponding to the above result sequence file.
+* Sixth argumet: output sequence file name.
+* Seventh argument: output index file name.
 
-### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+## Example
 
 ```
-until finished
+python main.py data/chrY/chrY_prefiltered.txt data/chrY/chrY_prefiltered.mask 0.3 data/chrY/"1st-type cr seq" data/chrY/1st-type_circle_repet data/chrY/output_seq_file.txt data/chrY/output_idx_file.txt 
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+## Output Files
+The output sequence file contains the string of the first section of circle repeats (i.e. s1s2) after tandem repeats filtering.
 
-## Running the tests
+The output index file contains index info of the circle repeats after tandem repeats filtering. Please check https://github.com/yw326/MicroDNA_Detection/blob/master/README.md for explanation of the index file notation.
 
-Explain how to run the automated tests for this system
 
-### Break down into end to end tests
 
-Explain what these tests test and why
 
-```
-Give an example
-```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
