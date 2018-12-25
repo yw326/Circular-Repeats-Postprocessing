@@ -2,7 +2,8 @@
 
 The goal of this small python program is to process the result from https://github.com/yw326/MicroDNA_Detection. More specifically it
 * filters out the microDNA pairs that has a tandem repeat percentage above a certain predefined threshold.
-* collect general information on the microDNA pairs found: average GC content, length distribution, and percentage of microDNA with microhomology (2-15 length).
+* write the results in specified output files.
+* collect general information on the microDNA pairs found: average GC content, length distribution, and percentage of microDNA with microhomology (2 length).
 
 ## Getting Started
 
