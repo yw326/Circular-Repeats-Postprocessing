@@ -9,7 +9,7 @@ The goal of this small python program is to process the result from https://gith
 
 First, you need to have the output sequence and index files obtained from the MicroDNA_Detection https://github.com/yw326/MicroDNA_Detection, as they are required inputs for this program.
 
-Second, use tandem repeat finder (TRF) (https://tandem.bu.edu/trf/trf.html) to obtain a masked version of the original sequence used in MicroDNA_Detection (i.e. tandem repeats in the sequence are replaced with letter "N"). If the orgininal sequence contains letters other than "A", "T", "C", "G", we recommend remove these letters before running TRF.
+Second, use tandem repeat finder (TRF) (https://tandem.bu.edu/trf/trf.html) to obtain a masked version of the original sequence used in MicroDNA_Detection (i.e. tandem repeats in the sequence are replaced with letter "N"). If the original sequence contains letters other than "A", "T", "C", "G", we recommend remove these letters before running TRF.
 
 ## Command Line Options
 
@@ -19,7 +19,7 @@ The program has 7 arguments, all required:
 * Third argument: threshold for tandem repeats percentage. Any circle repeats found that has tandem repeats more than this threshold are filtered out. The value should be between 0 and 1.
 * Fourth argument: circle repeat sequence file name. The result circle repeat sequence file (from MicroDNA_Detection).
 * Fifth argument: circle repeat index file name. The result circle repeat index file (also from MicroDNA_Detection) corresponding to the above result sequence file.
-* Sixth argumet: output sequence file name.
+* Sixth argument: output sequence file name.
 * Seventh argument: output index file name.
 
 
