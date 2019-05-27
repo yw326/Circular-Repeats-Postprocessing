@@ -2,6 +2,20 @@
 
 You need to have the output index file obtained from https://github.com/yw326/MicroDNA_Detection, as they are required inputs for this program.
 
+# MicroDNA Reintegration Simulation
+
+We simulate microDNA reintegration by iteratively inserting pairs of (s1s2,s2s1) (and (s1s2, s1's2') for reversed complement) into a random string of A, T, C, and G. We also iteratively add mutations (insertion, deletion, replacement) into the sequence. We keep track and update the positions of microDNA repeated pairs after each mutation and microDNA insertion. The output of the simulation are:
+(1) a sequence file, which contains the inserted microDNA pairs and mutations
+(2) a pickle file contains the information of the positions of the inserted microDNA pairs
+
+In addition, we also provide a testing program that compares the output index file (from using https://github.com/yw326/MicroDNA_Detection) on the simulated sequence to the ground truth (the pickle file containing positions of miroDNA pairs).
+
+
+## 
+
+
+
+
 # MicroDNA Detection Result Processing
 
 The goal of this small python program is to process the result from https://github.com/yw326/MicroDNA_Detection. More specifically it:
