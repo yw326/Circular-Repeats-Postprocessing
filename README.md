@@ -1,15 +1,15 @@
-# MicroDNA_Detection_Post_Process
-
-The goal of this small python program is to process the result from https://github.com/yw326/MicroDNA_Detection. More specifically it
-* filters out the microDNA pairs that has a tandem repeat percentage above a certain predefined threshold.
-* write the results in specified output files.
-* collect general information on the microDNA pairs found: average GC content, length distribution, and percentage of microDNA with microhomology (2 length).
-
 ## Prerequisites
 
-First, you need to have the output sequence and index files obtained from the MicroDNA_Detection https://github.com/yw326/MicroDNA_Detection, as they are required inputs for this program.
+You need to have the output index file obtained from https://github.com/yw326/MicroDNA_Detection, as they are required inputs for this program.
 
-Second, use tandem repeat finder (TRF) (https://tandem.bu.edu/trf/trf.html) to obtain a masked version of the original sequence used in MicroDNA_Detection (i.e. tandem repeats in the sequence are replaced with letter "N"). If the original sequence contains letters other than "A", "T", "C", "G", we recommend remove these letters before running TRF.
+# MicroDNA Detection Result Processing
+
+The goal of this small python program is to process the result from https://github.com/yw326/MicroDNA_Detection. More specifically it:
+* convert the index file into an array of CircleRepeatPair objects that are easier to process, each of which represents a microDNA reintegration
+* filters out duplicated microDNA pairs
+* collect general information on the microDNA pairs found: average GC content, length distribution, and information about microDNA with microhomology (2 length).
+
+
 
 ## Command Line Options
 
