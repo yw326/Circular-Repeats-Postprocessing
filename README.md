@@ -10,7 +10,7 @@ The goal of this small python program is to process the result from https://gith
 * collect general information on the microDNA pairs found: average GC content, length distribution, and information about microDNA with microhomology (2 length).
 
 
-
+<!---
 ## Command Line Options
 
 The program has 7 arguments, all required:
@@ -33,7 +33,7 @@ python main.py data/chrY/chrY_prefiltered.txt data/chrY/chrY_prefiltered.mask 0.
 The output sequence file contains the string of the first section of circle repeats (i.e. s1s2) after tandem repeats filtering.
 
 The output index file contains index info of the circle repeats after tandem repeats filtering. Please check https://github.com/yw326/MicroDNA_Detection/blob/master/README.md for explanation of the index file notation.
-
+-->
 
 
 
