@@ -11,17 +11,33 @@ We simulate microDNA reintegration by iteratively inserting pairs of (s1s2,s2s1)
 In addition, we also provide a testing program that compares the output index file (from using https://github.com/yw326/MicroDNA_Detection) on the simulated sequence to the ground truth (the pickle file containing positions of miroDNA pairs).
 
 
-## 
+## Command Line Options for Simulation
+The program has 7 required arguments and 2 optional argument:
+* seqlen: length of the simulated sequence before
+* num_crepeats: number of microDNA reintegrations to be simulated
+* min: minimum of s1 and s2
+* max: maximum of s1 and s2
+* num_mutations: number of mutations to be added to the sequence
+* output_seq_file: the path of output sequence file
+* output_crepeats_file: the path of output pickle file that contains locations of microDNA pairs 
+* reversed_compl: indicating inserting pairs of (s1s2, s1's2'); no argument needed
+* maxitr (optional): maximum amount of attempts to insert a microDNA pair (default 1000)
 
+## Example for Simulation
+
+```
+python main.py data/chrY/chrY_prefiltered.txt data/chrY/chrY_prefiltered.mask 0.3 data/chrY/"1st-type cr seq" data/chrY/1st-type_circle_repeat data/chrY/output_seq_file.txt data/chrY/output_idx_file.txt 
+```
 
 
 
 # MicroDNA Detection Result Processing
 
-The goal of this small python program is to process the result from https://github.com/yw326/MicroDNA_Detection. More specifically it:
+This project also provides a program to process the result from https://github.com/yw326/MicroDNA_Detection. More specifically it:
 * convert the index file into an array of CircleRepeatPair objects that are easier to process, each of which represents a microDNA reintegration
 * filters out duplicated microDNA pairs
 * collect general information on the microDNA pairs found: average GC content, length distribution, and information about microDNA with microhomology (2 length).
+
 
 
 <!---
