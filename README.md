@@ -8,7 +8,7 @@ This program processes the output from [Circular Repeats Finder](https://github.
 You need to have the output from running the [Circular Repeats Finder](https://github.com/yw326/Circular-Repeat-Finder) (CRF), as well as the DNA sequence file used in CRF.
 
 
-# Usage
+## Usage
 
 The program takes the following argument
 * --seq_path: the path to the DNA sequence file
@@ -23,11 +23,19 @@ The program takes the following argument
 python main.py --seq_path sequence.txt --data_path direct_index.txt --output_path output --is_direct true --is_data_folder false
 ```
 
-The above command will process all the data in file direct_index.txt and creates a folder named "output" in which processed data are stored.  
+The above command will process all the data in file direct_index.txt and creates a folder named `output` in which processed data are stored. Note that (1) file sequence.txt holds the DNA sequence data corresponding to the direct_index.txt (i.e. direct_index.txt is obtained by running sequence.txt on CRF), and (2) the type of circular repeats is specified as direct.
 
+```
+python main.py --seq_path sequence.txt --data_path index_data_dir --output_path output --is_direct true --is_data_folder true
+```
+
+The above is very similar to the previous command. The difference is that this command aggregates the data from all the data files in the directory, and then performs processing. 
 
 ## Output Files
 
+Two folders are created by the program: `pairs` and `segments`. 
+
+In the 
 
 
 
