@@ -173,8 +173,8 @@ def raw_pairs_from_dir(dir, is_direct, seq):
         result = result + raw_pairs_from_file(file_path, is_direct, seq)
     return result
 
-def cr_pairs_from_file(file_path, seq, is_direct, is_data_folder, remove_duplicates=True, remove_overlap=True,
-        favor_microhomology=True):
+def cr_pairs_from_file(file_path, seq, is_direct, is_data_folder, remove_duplicates, remove_overlap,
+        favor_microhomology):
 
     print_message = "Circular repeats index file: {}\n".format(file_path)
 
@@ -210,7 +210,7 @@ def cr_pairs_from_file(file_path, seq, is_direct, is_data_folder, remove_duplica
 
     return result, meta_data
 
-def cr_segments_from_pairs(pairs, seq, remove_overlap=True):
+def cr_segments_from_pairs(pairs, seq, remove_overlap):
 
     result = []
     for pair in pairs:

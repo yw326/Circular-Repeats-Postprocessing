@@ -18,13 +18,20 @@ if __name__ == '__main__':
     is_direct = args.is_direct
     is_data_folder = args.is_data_folder
 
+    remove_pair_dup = args.remove_pair_dup
+    remove_pair_overlap = args.remove_pair_overlap
+    faver_microhomology = args.faver_microhomology
+    remove_segments_overlap = args.remove_segments_overlap
+
+
     if is_task_performed(output_path):
         print("The task has already been performed\n")
         load_and_print_summary(output_path)
     else:
         seq, seq_info = get_seq_from_file(seq_path)
-        pairs, pairs_info= cr_pairs_from_file(data_file_path, seq, is_direct, is_data_folder)
-        segments, segs_info = cr_segments_from_pairs(pairs, seq)
+        pairs, pairs_info= cr_pairs_from_file(data_file_path, seq, is_direct, is_data_folder, remove_pair_dup,
+                                remove_pair_overlap, faver_microhomology)
+        segments, segs_info = cr_segments_from_pairs(pairs, seq, remove_segments_overlap)
 
         save_result(output_path, pairs, segments, pairs_info, segs_info, seq_info)
 
