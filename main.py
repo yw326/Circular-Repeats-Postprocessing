@@ -1,15 +1,30 @@
-from CircleRepeat.circle_repeats_setup import setup_circle_repeats_from_index_file, plot_distr, averge_GC_content, check_microhomo, get_pairs_len_smaller_than
-from helpers.file_helper import get_seq_from_file
+from utils import get_seq_from_file
+from preprocess import cr_pairs_from_file, cr_segments_from_pairs
+from save import save_result
+from load import is_task_performed, load_and_print_summary
+from config import get_arguments
+
+# e.g. python main.py --seq_path data/chr21_prefiltered.mask --data_path data/chr21_direct_index_40_20.txt --output_path output --is_direct true --is_data_folder false
+# e.g. python main.py --seq_path data/chr21_prefiltered.mask --data_path data/chr21_direct_idx --output_path output --is_direct true --is_data_folder true
 
 
+if __name__ == '__main__':
+    parser = get_arguments()
+    args = parser.parse_args()
 
-sequence = get_seq_from_file("data/chrY_prefiltered.mask")
-print("sequence length", len(sequence))
-index_file_name = "data/chrY_index.txt"
-circle_repeat_pairs = setup_circle_repeats_from_index_file(sequence, index_file_name)
+    data_file_path = args.data_path
+    output_path = args.output_path
+    seq_path = args.seq_path
+    is_direct = args.is_direct
+    is_data_folder = args.is_data_folder
 
-print("Number of repeat pair found", len(circle_repeat_pairs))
-print("Average GC content: ", averge_GC_content(circle_repeat_pairs))
-check_microhomo(circle_repeat_pairs, sequence)
-plot_distr(circle_repeat_pairs)
+    if is_task_performed(output_path):
+        print("The task has already been performed\n")
+        load_and_print_summary(output_path)
+    else:
+        seq, seq_info = get_seq_from_file(seq_path)
+        pairs, pairs_info= cr_pairs_from_file(data_file_path, seq, is_direct, is_data_folder)
+        segments, segs_info = cr_segments_from_pairs(pairs, seq)
+
+        save_result(output_path, pairs, segments, pairs_info, segs_info, seq_info)
 
