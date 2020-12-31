@@ -5,22 +5,25 @@ This program processes the output from [Circular Repeats Finder](https://github.
 
 ## Prerequisites
 
-You need to have the output from running the [Circular Repeats Finder](https://github.com/yw326/Circular-Repeat-Finder) (CRF), as well as the DNA sequence file used in circular repeats finder.
+You need to have the output from running the [Circular Repeats Finder](https://github.com/yw326/Circular-Repeat-Finder) (CRF), as well as the DNA sequence file used in CRF.
 
 
 # Usage
 
-The program has 7 arguments, all required:
-* First argument:  sequence file name. It should be the same file used in MicroDNA_Detection.
-* Second argument: masked sequence file name. The masked version of the orginal sequence by TRF.
-* Third argument: threshold for tandem repeats percentage. Any circle repeats found that has tandem repeats more than this threshold are filtered out. The value should be between 0 and 1.
-* Fourth argument: circle repeat sequence file name. The result circle repeat sequence file (from MicroDNA_Detection).
-* Fifth argument: circle repeat index file name. The result circle repeat index file (also from MicroDNA_Detection) corresponding to the above result sequence file.
-* Sixth argument: output sequence file name.
-* Seventh argument: output index file name.
-
+The program takes the following argument
+* --seq_path: the path to the DNA sequence file
+* --data_path: the path to the circular repeated pairs data. This could be either a file, or a folder containing all the data files.
+* --is_data_folder: false if you only want to process a single file. If set to true, circular repeated pairs in all files in the directory speficied by data_path will be aggregated together.
+* --output_path: the output folder that will be created to store the summary data and processed circular repeats data.
+* --is_direct: set to true if direct circular repeats are processed; otherwise (i.e. when processing inverted circular repeats), set to false
 
 ## Example
+
+```
+python main.py --seq_path sequence.txt --data_path direct_index.txt --output_path output --is_direct true --is_data_folder false
+```
+
+The above command will process all the data in file direct_index.txt and creates a folder named "output" in which processed data are stored.  
 
 
 ## Output Files
