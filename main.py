@@ -1,8 +1,8 @@
-from utils import get_seq_from_file
-from preprocess import cr_pairs_from_file, cr_segments_from_pairs
-from save import save_result
-from load import is_task_performed, load_and_print_summary
-from config import get_arguments
+from helpers.utils import get_seq_from_file
+from helpers.preprocess import cr_pairs_from_file, cr_segments_from_pairs
+from helpers.save import save_result
+from helpers.load import is_task_performed, load_and_print_summary
+from helpers.config import get_arguments
 
 # e.g. python main.py --seq_path data/chr21_prefiltered.mask --data_path data/chr21_direct_index_40_20.txt --output_path output --is_direct true --is_data_folder false
 # e.g. python main.py --seq_path data/chr21_prefiltered.mask --data_path data/chr21_direct_idx --output_path output --is_direct true --is_data_folder true
