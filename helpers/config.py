@@ -15,7 +15,7 @@ def get_arguments():
 
     parser.add_argument('--no_remove_pair_dup', default=False, action="store_true")
     parser.add_argument('--no_remove_pair_overlap', default=False, action="store_true")
-    parser.add_argument('--no_faver_microhomology', default=False, action="store_true")
+    parser.add_argument('--no_favor_microhomology', default=False, action="store_true")
     parser.add_argument('--no_remove_segments_overlap', default=False, action="store_true")
 
     return parser

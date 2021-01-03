@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     remove_pair_dup = not args.no_remove_pair_dup
     remove_pair_overlap = not args.no_remove_pair_overlap
-    faver_microhomology = not args.no_faver_microhomology
+    no_favor_microhomology = not args.no_favor_microhomology
     remove_segments_overlap = not args.no_remove_segments_overlap
 
 
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     else:
         seq, seq_info = get_seq_from_file(seq_path)
         pairs, pairs_info= cr_pairs_from_file(data_file_path, seq, is_direct, is_data_folder, remove_pair_dup,
-                                remove_pair_overlap, faver_microhomology)
+                                remove_pair_overlap, no_favor_microhomology)
         segments, segs_info = cr_segments_from_pairs(pairs, seq, remove_segments_overlap)
 
         save_result(output_path, pairs, segments, pairs_info, segs_info, seq_info)
