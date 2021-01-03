@@ -34,10 +34,10 @@ python main.py --seq_path sequence.txt --data_path direct_index.txt --output_pat
 The above command will process all the data in file `direct_index.txt` and creates a folder named `output` in which processed data are stored. Note that (1) file `sequence.txt` holds the DNA sequence data corresponding to the `direct_index.txt` (i.e. `direct_index.txt` is obtained by running `sequence.txt` on CRF), and (2) the type of circular repeats is specified as inverted.
 
 ```
-python main.py --seq_path sequence.txt --data_path index_data_dir --output_path output --is_direct true 
+python main.py --seq_path sequence.txt --data_path index_data_dir --output_path output 
 ```
 
-The above is very similar to the previous command. The difference is that this command aggregates the data from all the data files in the directory, and then performs processing. 
+The above is very similar to the previous command. The difference is that this command aggregates the data from all the data files in the directory, and then performs processing. Also, the type of circular repeats is assumed to be direct since `is_inverted` is not set.
 
 ## Output Files
 
