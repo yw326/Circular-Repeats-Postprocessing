@@ -4,8 +4,10 @@ from helpers.save import save_result
 from helpers.load import is_task_performed, load_and_print_summary
 from helpers.config import get_arguments
 
-# e.g. python main.py --seq_path data/chr21_prefiltered.mask --data_path data/chr21_direct_index_40_20.txt --output_path output --is_direct true --is_data_folder false
-# e.g. python main.py --seq_path data/chr21_prefiltered.mask --data_path data/chr21_direct_idx --output_path output --is_direct true --is_data_folder true
+# e.g. python main.py --seq_path data/chr21_prefiltered.mask --data_path data/chr21_direct_index_40_20.txt --output_path output --is_data_file
+# e.g. python main.py --seq_path data/chr21_prefiltered.mask --data_path data/chr21_direct_idx --output_path output
+
+
 
 
 if __name__ == '__main__':
@@ -15,13 +17,14 @@ if __name__ == '__main__':
     data_file_path = args.data_path
     output_path = args.output_path
     seq_path = args.seq_path
-    is_direct = args.is_direct
-    is_data_folder = args.is_data_folder
 
-    remove_pair_dup = args.remove_pair_dup
-    remove_pair_overlap = args.remove_pair_overlap
-    faver_microhomology = args.faver_microhomology
-    remove_segments_overlap = args.remove_segments_overlap
+    is_direct = not args.is_inverted
+    is_data_folder = not args.is_data_file
+
+    remove_pair_dup = not args.no_remove_pair_dup
+    remove_pair_overlap = not args.no_remove_pair_overlap
+    faver_microhomology = not args.no_faver_microhomology
+    remove_segments_overlap = not args.no_remove_segments_overlap
 
 
     if is_task_performed(output_path):
